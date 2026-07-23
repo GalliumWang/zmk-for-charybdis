@@ -87,6 +87,10 @@ ZMK 通用输入处理器 `&zip_xy_to_scroll_mapper`，以降低键盘配置和�
 
 - [ ] 确认当前固定的 ZMK `v0.3` 与 PMW3610 模块对
       `zmk,input-listener`、层级 override 和 `&zip_xy_to_scroll_mapper` 的兼容性。
+- [ ] 修正 `config/charybdis.keymap` 中 pointing 默认值的定义顺序：将
+      `ZMK_POINTING_DEFAULT_MOVE_VAL` 和 `ZMK_POINTING_DEFAULT_SCRL_VAL`
+      移到 `#include <dt-bindings/zmk/pointing.h>` 之前，确保头文件解析时采用自定义值；
+      修改后重新验证 `&mmv` 按键模拟鼠标移动以及 `&msc`/旋钮模拟滚动。
 - [ ] 在轨迹球输入监听器中为第 4 层增加 layer-specific override。
 - [ ] 在第 4 层使用 `&zip_xy_to_scroll_mapper`，将 X/Y 相对移动映射为
       horizontal wheel/wheel 事件。
